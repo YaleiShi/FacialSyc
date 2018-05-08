@@ -544,9 +544,9 @@ public class MainActivity extends AppCompatActivity implements CameraDetector.Ca
 
         mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child(userId).child("joy").push().setValue(meanJoy);
         mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child(userId).child("anger").push().setValue(meanAnger);
-        mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child(userId).child("browRaise").push().setValue(meanJoy);
-        mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child(userId).child("attention").push().setValue(meanAnger);
-        mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child(userId).child("smile").push().setValue(meanJoy);
+        mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child(userId).child("browRaise").push().setValue(br);
+        mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child(userId).child("attention").push().setValue(at);
+        mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child(userId).child("smile").push().setValue(s);
 
     }
 
@@ -577,7 +577,7 @@ public class MainActivity extends AppCompatActivity implements CameraDetector.Ca
         double smilesScore = Synchronization.synScore(smiles1, smiles2);
 
         double fscore = ((joyScore + angerScore + brScore + attentionScore + smilesScore) / 5) * 50 + 50;
-        
+
         this.syncScore.setText(String.valueOf(fscore));
 
         mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child(userId).removeValue();
