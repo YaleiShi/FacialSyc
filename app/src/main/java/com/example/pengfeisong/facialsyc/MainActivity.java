@@ -124,6 +124,7 @@ public class MainActivity extends AppCompatActivity implements CameraDetector.Ca
         userId = mAuth.getUid();
         syncScore = findViewById(R.id.syncScore);
 
+        //Add joys
         mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child("1oLs06w3AUb9EfFOEUQeovNYtEr2").child("joy").addChildEventListener(new ChildEventListener() {
             //perrysong@gmail.com 's data update
             @Override
@@ -193,7 +194,7 @@ public class MainActivity extends AppCompatActivity implements CameraDetector.Ca
             }
         });
 
-        //When add anger
+        //When adding anger
         mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child("1oLs06w3AUb9EfFOEUQeovNYtEr2").child("anger").addChildEventListener(new ChildEventListener() {
             //perrysong@gmail.com 's data update
             @Override
@@ -261,6 +262,214 @@ public class MainActivity extends AppCompatActivity implements CameraDetector.Ca
                 // ...
             }
         });
+
+        //Add brow raise
+        mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child("1oLs06w3AUb9EfFOEUQeovNYtEr2").child("browRaise").addChildEventListener(new ChildEventListener() {
+            //perrysong@gmail.com 's data update
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+
+                Float browRaise = dataSnapshot.getValue(Float.class);
+                System.out.println("adding browRaise1 = " + browRaise);
+                fcialInfo1.addBrowRaise(browRaise);
+
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+                // ...
+            }
+        });
+
+        mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child("hGTfuATN1SR7qempPKTkNugYwFZ2").child("browRaise").addChildEventListener(new ChildEventListener() {
+            //yaleishi@gmail.com data
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                Float browRaise = dataSnapshot.getValue(Float.class);
+                System.out.println("adding browRaise = " + browRaise);
+                fcialInfo2.addBrowRaise(browRaise);
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+                // ...
+            }
+        });
+
+        //Add attention
+        mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child("1oLs06w3AUb9EfFOEUQeovNYtEr2").child("attention").addChildEventListener(new ChildEventListener() {
+            //perrysong@gmail.com 's data update
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+
+                Float attention = dataSnapshot.getValue(Float.class);
+                System.out.println("adding attention1 = " + attention);
+                fcialInfo1.addAttention(attention);
+
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+                // ...
+            }
+        });
+
+        mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child("hGTfuATN1SR7qempPKTkNugYwFZ2").child("attention").addChildEventListener(new ChildEventListener() {
+            //yaleishi@gmail.com data
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                Float attention = dataSnapshot.getValue(Float.class);
+                System.out.println("adding attention 2 = " + attention);
+                fcialInfo2.addAttention(attention);
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+                // ...
+            }
+        });
+
+        //Add smile
+        mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child("1oLs06w3AUb9EfFOEUQeovNYtEr2").child("smile").addChildEventListener(new ChildEventListener() {
+            //perrysong@gmail.com 's data update
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+
+                Float smile = dataSnapshot.getValue(Float.class);
+                System.out.println("adding smile 1 = " + smile);
+                fcialInfo1.addSmile(smile);
+
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+                // ...
+            }
+        });
+
+        mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child("hGTfuATN1SR7qempPKTkNugYwFZ2").child("smile").addChildEventListener(new ChildEventListener() {
+            //yaleishi@gmail.com data
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                Float smile = dataSnapshot.getValue(Float.class);
+                System.out.println("adding smile 2 = " + smile);
+                fcialInfo2.addSmile(smile);
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+                // ...
+            }
+        });
+
     }
 
     @Override
@@ -327,10 +536,17 @@ public class MainActivity extends AppCompatActivity implements CameraDetector.Ca
         float meanJoy = joy.lastTenSecMeanJoy(face);
 
         float meanAnger = anger.lastTenSecMeanAnger(face);
-        float surprise = face.emotions.getSurprise();
+
+        float br = face.expressions.getBrowRaise();
+        float at = face.expressions.getAttention();
+        float s = face.expressions.getSmile();
+
 
         mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child(userId).child("joy").push().setValue(meanJoy);
-        mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child(userId).child("anger").push().setValue(meanJoy);
+        mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child(userId).child("anger").push().setValue(meanAnger);
+        mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child(userId).child("browRaise").push().setValue(meanJoy);
+        mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child(userId).child("attention").push().setValue(meanAnger);
+        mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child(userId).child("smile").push().setValue(meanJoy);
 
     }
 
@@ -339,19 +555,33 @@ public class MainActivity extends AppCompatActivity implements CameraDetector.Ca
     public void sync(View view) {
         ArrayList<Float> joys1 = fcialInfo1.getJoyData();
         ArrayList<Float> joys2 = fcialInfo2.getJoyData();
-        ArrayList<Float> angers1 = fcialInfo1.getJoyData();
-        ArrayList<Float> angers2 = fcialInfo2.getJoyData();
+
+        ArrayList<Float> angers1 = fcialInfo1.getAngerData();
+        ArrayList<Float> angers2 = fcialInfo2.getAngerData();
+
+        ArrayList<Float> browRaises1 = fcialInfo1.getBrowRaiseData();
+        ArrayList<Float> browRaises2 = fcialInfo2.getBrowRaiseData();
+
+        ArrayList<Float> attentions1 = fcialInfo1.getAttentionData();
+        ArrayList<Float> attentions2 = fcialInfo2.getAttentionData();
+
+        ArrayList<Float> smiles1 = fcialInfo1.getSmilesData();
+        ArrayList<Float> smiles2 = fcialInfo2.getSmilesData();
+
+
 
         double joyScore = Synchronization.synScore(joys1, joys2);
         double angerScore = Synchronization.synScore(angers1, angers2);
+        double brScore = Synchronization.synScore(browRaises1, browRaises2);
+        double attentionScore = Synchronization.synScore(attentions1, attentions2);
+        double smilesScore = Synchronization.synScore(smiles1, smiles2);
 
-        double fscore = ((joyScore + angerScore) / 2) * 100 + 50;
+        double fscore = ((joyScore + angerScore + brScore + attentionScore + smilesScore) / 5) * 50 + 50;
+        
         this.syncScore.setText(String.valueOf(fscore));
 
         mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child(userId).removeValue();
     }
-
-
 
 
 }
