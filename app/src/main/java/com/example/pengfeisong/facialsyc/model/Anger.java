@@ -75,7 +75,7 @@ public class Anger {
         return meanAnger;
     }
 
-    public float last100MeanJoyWMA(Face face) {
+    public float last100MeanAngerWMA(Face face) {
         float meanAnger = 0;
         float anger = face.emotions.getAnger();
         if(window2.size() >= 100) window2.removeFirst();

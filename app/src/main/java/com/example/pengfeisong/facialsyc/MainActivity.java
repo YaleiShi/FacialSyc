@@ -36,21 +36,6 @@ public class MainActivity extends AppCompatActivity implements CameraDetector.Ca
 
     private static final String TAG = "Main Activity";
 
-    class JoyDataPoint implements Comparable<JoyDataPoint>{
-        float score;
-        long time;
-
-        JoyDataPoint(float s, long t) {
-            this.score = s;
-            this.time = t;
-        }
-
-        public int compareTo(@NonNull JoyDataPoint p2) {
-            return (int)(this.time - p2.time) / 1000;
-        }
-
-    }
-
 
     //1.Create instance variables for the Surface View and Camera Detector references
     TextView syncScore;
@@ -88,11 +73,7 @@ public class MainActivity extends AppCompatActivity implements CameraDetector.Ca
         // id is in fact a Surface View object.
         cameraDetectorSurfaceView = findViewById(R.id.cameraDetectorSurfaceView);
         // grep the textViews
-//        textView1  = findViewById(R.id.textView1);
-//        textView2  = findViewById(R.id.textView2);
-//        textView3  = findViewById(R.id.textView3);
-//
-//        imageView = findViewById(R.id.imageView);
+
         //4. Initialize the Camera Detector passing in: “this” which is a reference to the Activity, the phone’s cameras we are using,
         // and the Surface View to embed the detector in
 
@@ -105,7 +86,6 @@ public class MainActivity extends AppCompatActivity implements CameraDetector.Ca
         fcialInfo1 = new FacialInfo(1800);
         fcialInfo2 = new FacialInfo(1800);
 
-//        window = new LinkedList<Float>();
         //6. Set the MainActivity class to be the listener for the
         // Camera Detector. (This will cause an error that we will fix in the
         // next section, “Implementing the Camera Detector”)
@@ -537,16 +517,16 @@ public class MainActivity extends AppCompatActivity implements CameraDetector.Ca
 
         float meanAnger = anger.lastTenSecMeanAnger(face);
 
-        float br = face.expressions.getBrowRaise();
-        float at = face.expressions.getAttention();
-        float s = face.expressions.getSmile();
+        float engagement = face.emotions.getEngagement();
+        float fear = face.emotions.getFear();
+        float surprise = face.emotions.getSurprise();
 
 
         mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child(userId).child("joy").push().setValue(meanJoy);
         mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child(userId).child("anger").push().setValue(meanAnger);
-        mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child(userId).child("browRaise").push().setValue(br);
-        mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child(userId).child("attention").push().setValue(at);
-        mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child(userId).child("smile").push().setValue(s);
+        mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child(userId).child("browRaise").push().setValue(engagement);
+        mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child(userId).child("attention").push().setValue(fear);
+        mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child(userId).child("smile").push().setValue(surprise);
 
     }
 
@@ -559,25 +539,25 @@ public class MainActivity extends AppCompatActivity implements CameraDetector.Ca
         ArrayList<Float> angers1 = fcialInfo1.getAngerData();
         ArrayList<Float> angers2 = fcialInfo2.getAngerData();
 
-        ArrayList<Float> browRaises1 = fcialInfo1.getBrowRaiseData();
-        ArrayList<Float> browRaises2 = fcialInfo2.getBrowRaiseData();
+        ArrayList<Float> engagement1 = fcialInfo1.getEngagementData();
+        ArrayList<Float> engagement2 = fcialInfo2.getEngagementData();
 
-        ArrayList<Float> attentions1 = fcialInfo1.getAttentionData();
-        ArrayList<Float> attentions2 = fcialInfo2.getAttentionData();
+        ArrayList<Float> fear1 = fcialInfo1.getFearData();
+        ArrayList<Float> fear2 = fcialInfo2.getFearData();
 
-        ArrayList<Float> smiles1 = fcialInfo1.getSmilesData();
-        ArrayList<Float> smiles2 = fcialInfo2.getSmilesData();
+        ArrayList<Float> surprise1 = fcialInfo1.getSurpriseData();
+        ArrayList<Float> surprise2 = fcialInfo2.getSurpriseData();
 
 
 
         double joyScore = Synchronization.synScore(joys1, joys2);
         double angerScore = Synchronization.synScore(angers1, angers2);
-        double brScore = Synchronization.synScore(browRaises1, browRaises2);
-        double attentionScore = Synchronization.synScore(attentions1, attentions2);
-        double smilesScore = Synchronization.synScore(smiles1, smiles2);
+        double brScore = Synchronization.synScore(engagement1, engagement2);
+        double attentionScore = Synchronization.synScore(fear1, fear2);
+        double smilesScore = Synchronization.synScore(surprise1, surprise2);
 
         double fscore = ((joyScore + angerScore + brScore + attentionScore + smilesScore) / 5) * 50 + 50;
-
+        System.out.println("fscore = " + fscore);
         this.syncScore.setText(String.valueOf(fscore));
 
         mDatabase.child("2_MX40NjA4MTM1Mn5-MTUyNDc5MDI5NjAwOH5XT2ZHd2RDUUxFdG1LRHpPS3JYUmpOdjd-fg").child(userId).removeValue();

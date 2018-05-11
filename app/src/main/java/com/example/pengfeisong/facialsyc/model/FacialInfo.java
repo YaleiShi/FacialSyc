@@ -94,7 +94,7 @@ public class FacialInfo {
         return res;
     }
 
-    public ArrayList<Float> getBrowRaiseData() {
+    public ArrayList<Float> getEngagementData() {
         ArrayList<Float> res= new ArrayList<>();
         Iterator cur = this.browRaise.iterator();
         while(cur.hasNext()) {
@@ -103,7 +103,7 @@ public class FacialInfo {
         return res;
     }
 
-    public ArrayList<Float> getAttentionData() {
+    public ArrayList<Float> getFearData() {
         ArrayList<Float> res= new ArrayList<>();
         Iterator cur = this.attentions.iterator();
         while(cur.hasNext()) {
@@ -112,7 +112,7 @@ public class FacialInfo {
         return res;
     }
 
-    public ArrayList<Float> getSmilesData() {
+    public ArrayList<Float> getSurpriseData() {
         ArrayList<Float> res= new ArrayList<>();
         Iterator cur = this.smiles.iterator();
         while(cur.hasNext()) {
