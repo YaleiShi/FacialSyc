@@ -533,6 +533,7 @@ public class MainActivity extends AppCompatActivity implements CameraDetector.Ca
 
 
     public void sync(View view) {
+        
         ArrayList<Float> joys1 = fcialInfo1.getJoyData();
         ArrayList<Float> joys2 = fcialInfo2.getJoyData();
 
